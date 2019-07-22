@@ -349,3 +349,115 @@ class FetchAutoRainDataRecord(models.Model):
     def __str__(self):
         return self.num
 
+
+class BureauWeatherData(models.Model):
+    ###########################################################################################################
+    # Meaning for these variables
+    ###########################################################################################################
+    # lat 緯度 (座標系統採TWD67)，單位 度
+    # lon 經度 (座標系統採TWD67)，單位 度
+    # locationName 測站名稱
+    # stationId 測站ID
+    # obsTime 觀測資料時間
+    # ELEV 高度，單位 公尺
+    # WDIR 風向，單位 度，一般風向 0 表示無風
+    # WDSD 風速，單位 公尺/秒
+    # TEMP 溫度，單位 攝氏
+    # HUMD 相對濕度，單位 百分比率，此處以實數 0-1.0 記錄
+    # PRES 測站氣壓，單位 百帕
+    # R24R 日累積雨量，單位 毫米
+    # H_FX 小時最大陣風風速，單位 公尺/秒
+    # H_XD 小時最大陣風風向，單位 度
+    # H_FXT 小時最大陣風時間，hhmm (小時分鐘)
+    # H_F10 本時最大10分鐘平均風速，單位 公尺/秒
+    # H_10D 本時最大10分鐘平均風向，單位 度
+    # H_F10T 本時最大10分鐘平均風速發生時間，hhmm (小時分鐘)
+    # H_UVI 小時紫外線指數
+    # D_TX 本日最高溫，單位 攝氏
+    # D_TXT 本日最高溫發生時間，hhmm (小時分鐘)
+    # D_TN 本日最低溫，單位 攝氏
+    # D_TNT 本日最低溫發生時間，hhmm (小時分鐘)
+    # D_TS 本日總日照時數，單位 小時
+    # H_VIS 本時整點盛行能見度，單位 公里
+    # H_Weather 本時整點天氣現象描述
+    # CITY 縣市
+    # CITY_SN 縣市編號
+    # TOWN 鄉鎮
+    # TOWN_SN 鄉鎮編號
+    ###########################################################################################################
+    # Example
+    ###########################################################################################################
+    # "lat":"25.039410",
+    # "lon":"121.506676",
+    # "locationName":"臺北",
+    # "stationId":"466920",
+    # "time":{"obsTime":"2019-07-15 16:10:00"},
+    # "weatherElement":[
+    #     {"elementName":"ELEV","elementValue":"6.2550"},
+    #     {"elementName":"WDIR","elementValue":"40"},
+    #     {"elementName":"WDSD","elementValue":"4"},
+    #     {"elementName":"TEMP","elementValue":"31.80"},
+    #     {"elementName":"HUMD","elementValue":"0.67"},
+    #     {"elementName":"PRES","elementValue":"1001.10"},
+    #     {"elementName":"24R","elementValue":"0"},
+    #     {"elementName":"H_FX","elementValue":"8.70"},
+    #     {"elementName":"H_XD","elementValue":"40"},
+    #     {"elementName":"H_FXT","elementValue":"1551"},
+    #     {"elementName":"H_F10","elementValue":"4"},
+    #     {"elementName":"H_10D","elementValue":"40"},
+    #     {"elementName":"H_F10T","elementValue":"1555"},
+    #     {"elementName":"H_UVI","elementValue":"1.10"},
+    #     {"elementName":"D_TX","elementValue":"36.90"},
+    #     {"elementName":"D_TXT","elementValue":"1300"},
+    #     {"elementName":"D_TN","elementValue":"27.50"},
+    #     {"elementName":"D_TNT","elementValue":"530"},
+    #     {"elementName":"D_TS","elementValue":"5.70"},
+    #     {"elementName":"H_VIS","elementValue":"-99"},
+    #     {"elementName":"H_Weather","elementValue":"null"}
+    # ],
+    # "parameter":[
+    #     {"parameterName":"CITY","parameterValue":"臺北市"},
+    #     {"parameterName":"CITY_SN","parameterValue":"01"},
+    #     {"parameterName":"TOWN","parameterValue":"中正區"},
+    #     {"parameterName":"TOWN_SN","parameterValue":"036"}
+    # ]
+    ###########################################################################################################
+    
+    lat = models.FloatField()
+    lon = models.FloatField()
+    locationName = models.TextField()
+    stationId = models.TextField()
+    obsTime = models.DateTimeField()
+    ELEV = models.FloatField()
+    WDIR = models.FloatField()
+    WDSD = models.FloatField()
+    TEMP = models.FloatField()
+    HUMD = models.FloatField()
+    PRES = models.FloatField()
+    R24R = models.FloatField()
+    H_FX = models.FloatField()
+    H_XD = models.FloatField()
+    H_FXT = models.FloatField()
+    H_F10 = models.FloatField()
+    H_10D = models.FloatField()
+    H_F10T = models.FloatField()
+    H_UVI = models.FloatField()
+    D_TX = models.FloatField()
+    D_TXT = models.FloatField()
+    D_TN = models.FloatField()
+    D_TNT = models.FloatField()
+    D_TS = models.FloatField()
+    H_VIS = models.FloatField()
+    H_Weather = models.TextField()
+    CITY = models.TextField()
+    CITY_SN = models.IntegerField()
+    TOWN = models.TextField()
+    TOWN_SN = models.IntegerField()
+    num = models.BigIntegerField()
+
+    class Meta:
+        ordering = ['-stationId']
+
+    def __str__(self):
+        return self.stationId
+
