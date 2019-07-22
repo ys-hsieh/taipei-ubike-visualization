@@ -209,3 +209,20 @@ class AutoWeatherData(models.Model):
     def __str__(self):
         return self.stationId
 
+
+class AutoWeatherStation(models.Model):
+    lat = models.FloatField()
+    lon = models.FloatField()
+    locationName = models.TextField()
+    stationId = models.TextField()
+    CITY = models.TextField()
+    CITY_SN = models.IntegerField()
+    TOWN = models.TextField()
+    TOWN_SN = models.IntegerField()
+
+    class Meta:
+        ordering = ['-stationId']
+
+    def __str__(self):
+        return self.stationId
+
