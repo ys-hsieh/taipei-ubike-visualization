@@ -226,3 +226,14 @@ class AutoWeatherStation(models.Model):
     def __str__(self):
         return self.stationId
 
+
+class FetchAutoWeatherDataRecord(models.Model):
+    num = models.BigIntegerField()
+    mday = models.DateTimeField()
+
+    class Meta:
+        ordering = ['-num']
+
+    def __str__(self):
+        return self.num
+
