@@ -1,0 +1,4 @@
+cron:
+- description: "collect Taipei YouBike Data"
+  url: /vis/count
+  schedule: every 1 mins
