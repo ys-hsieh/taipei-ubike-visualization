@@ -25,7 +25,10 @@ SECRET_KEY = '*st1zz*c0erd0t(24ld+8)h2^42i&lg53#ay3&d)lsdmwmbt-a'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = [
+    '127.0.0.1',
+    'youbike-visualization.appspot.com',
+]
 
 
 # Application definition
