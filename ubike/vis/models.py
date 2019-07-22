@@ -320,3 +320,21 @@ class AutoRainData(models.Model):
     def __str__(self):
         return self.stationId
 
+
+class AutoRainStation(models.Model):
+    lat = models.FloatField()
+    lon = models.FloatField()
+    locationName = models.TextField()
+    stationId = models.TextField()
+    CITY = models.TextField()
+    CITY_SN = models.IntegerField()
+    TOWN = models.TextField()
+    TOWN_SN = models.IntegerField()
+    ATTRIBUTE = models.TextField()
+
+    class Meta:
+        ordering = ['-stationId']
+
+    def __str__(self):
+        return self.stationId
+
