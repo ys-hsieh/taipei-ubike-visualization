@@ -105,3 +105,14 @@ class FetchUbikeDataRecord(models.Model):
         return self.num
 
 
+###############################################################################################################
+# Weather models
+###############################################################################################################
+# All weather data from Central Weather Bureau (https://www.cwb.gov.tw/V7/forecast/)
+# All open data fetched from CWB Open Weather Data (https://opendata.cwb.gov.tw/index)
+# The following are three different weather data:
+#   1. AutoWeatherData      (1 hr)
+#   2. AutoRainData         (10 min)
+#   3. BureauWeatherData    (10 min)
+###############################################################################################################
+
