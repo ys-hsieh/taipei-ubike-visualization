@@ -70,3 +70,26 @@ class UbikeStop(models.Model):
 
     def __str__(self):
         return self.sna
+
+    
+class StopStatus(models.Model):
+    sno = models.IntegerField(unique=True)
+    sna = models.TextField()
+    tot = models.IntegerField()
+    sarea = models.TextField()
+    lat = models.FloatField()
+    lng = models.FloatField()
+    ar = models.TextField()
+    sareaen = models.TextField()
+    snaen = models.TextField()
+    aren = models.TextField()
+    act = models.BooleanField()
+
+
+    class Meta:
+        ordering = ['-sno']
+
+    
+    def __str__(self):
+        return self.sna
+
