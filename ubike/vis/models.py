@@ -237,3 +237,86 @@ class FetchAutoWeatherDataRecord(models.Model):
     def __str__(self):
         return self.num
 
+
+class AutoRainData(models.Model):
+    ###########################################################################################################
+    # Meaning for these variables
+    ###########################################################################################################
+    # lat 緯度 (座標系統採TWD67)，單位 度
+    # lon 經度 (座標系統採TWD67)，單位 度
+    # locationName 測站名稱
+    # stationId 測站ID
+    # obsTime 觀測資料時間
+    # elementName 中文說明
+    # ELEV 高度，單位 公尺
+    # RAIN 60分鐘累積雨量，單位 毫米
+    # MIN_10 10分鐘累積雨量，單位 毫米
+    # HOUR_3 3小時累積雨量，單位 毫米
+    # HOUR_6 6小時累積雨量，單位 毫米
+    # HOUR_12 12小時累積雨量，單位 毫米
+    # HOUR_24 24小時累積雨量，單位 毫米
+    # NOW 本日累積雨量
+    # latest_2days 前1日0時到現在之累積雨量
+    # latest_3days 前2日0時到現在之累積雨量
+    # CITY 縣市
+    # CITY_SN 縣市編號
+    # TOWN 鄉鎮
+    # TOWN_SN 鄉鎮編號
+    # ATTRIBUTE 自動站屬性
+    ###########################################################################################################
+    # Example
+    ###########################################################################################################
+    # "lat":"25.0394",
+    # "lon":"121.5067",
+    # "locationName":"臺北",
+    # "stationId":"466920",
+    # "time":{"obsTime":"2019-07-15 17:40:00"},
+    # "weatherElement":[
+    #     {"elementName":"ELEV","elementValue":"6.30"},
+    #     {"elementName":"RAIN","elementValue":"-998.00"},
+    #     {"elementName":"MIN_10","elementValue":"-998.00"},
+    #     {"elementName":"HOUR_3","elementValue":"-998.00"},
+    #     {"elementName":"HOUR_6","elementValue":"-998.00"},
+    #     {"elementName":"HOUR_12","elementValue":"0.00"},
+    #     {"elementName":"HOUR_24","elementValue":"2.00"},
+    #     {"elementName":"NOW","elementValue":"0.00"},
+    #     {"elementName":"latest_2days","elementValue":"2.00"},
+    #     {"elementName":"latest_3days","elementValue":"2.00"}
+    # ],
+    # "parameter":[
+    #     {"parameterName":"CITY","parameterValue":"臺北市"},
+    #     {"parameterName":"CITY_SN","parameterValue":"01"},
+    #     {"parameterName":"TOWN","parameterValue":"中正區"},
+    #     {"parameterName":"TOWN_SN","parameterValue":"036"},
+    #     {"parameterName":"ATTRIBUTE","parameterValue":"中央氣象局"}
+    # ]
+    ###########################################################################################################
+    
+    lat = models.FloatField()
+    lon = models.FloatField()
+    locationName = models.TextField()
+    stationId = models.TextField()
+    obsTime = models.DateTimeField()
+    ELEV = models.FloatField()
+    RAIN = models.FloatField()
+    MIN_10 = models.FloatField()
+    HOUR_3 = models.FloatField()
+    HOUR_6 = models.FloatField()
+    HOUR_12 = models.FloatField()
+    HOUR_24 = models.FloatField()
+    NOW = models.FloatField()
+    latest_2days = models.FloatField()
+    latest_3days = models.FloatField()
+    CITY = models.TextField()
+    CITY_SN = models.IntegerField()
+    TOWN = models.TextField()
+    TOWN_SN = models.IntegerField()
+    ATTRIBUTE = models.TextField()
+    num = models.BigIntegerField()
+
+    class Meta:
+        ordering = ['-stationId']
+
+    def __str__(self):
+        return self.stationId
+
