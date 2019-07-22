@@ -338,3 +338,14 @@ class AutoRainStation(models.Model):
     def __str__(self):
         return self.stationId
 
+
+class FetchAutoRainDataRecord(models.Model):
+    num = models.BigIntegerField()
+    mday = models.DateTimeField()
+
+    class Meta:
+        ordering = ['-num']
+
+    def __str__(self):
+        return self.num
+
