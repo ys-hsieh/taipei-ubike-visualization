@@ -1,4 +1,36 @@
 cron:
-- description: "collect Taipei YouBike Data"
+- description: "Testing counter"
   url: /vis/count
+  schedule: every 1 mins
+
+- description: "collect Taipei YouBike Data"
+  url: /vis/fetchUbikeStopData
+  schedule: every 1 mins
+
+- description: "collect Taipei YouBikeStop Data"
+  url: /vis/fetchStopStatusData
+  schedule: every 1 mins
+
+- description: "collect Taipei AutoCurrentWeather Data"
+  url: /vis/fetchAutoWeatherDataFromAPI
+  schedule: every 1 mins
+
+- description: "collect Taipei AutoWeatherStation Data"
+  url: /vis/fetchAutoWeatherStationFromAPI
+  schedule: every 1 mins
+
+- description: "collect Taipei AutoCurrentRain Data"
+  url: /vis/fetchAutoRainDataFromAPI
+  schedule: every 1 mins
+
+- description: "collect Taipei AutoRainStation Data"
+  url: /vis/fetchAutoRainStationFromAPI
+  schedule: every 1 mins
+
+- description: "collect Taipei BureauCurrentWeather Data"
+  url: /vis/fetchBureauWeatherDataFromAPI
+  schedule: every 1 mins
+
+- description: "collect Taipei BureauWeatherStation Data"
+  url: /vis/fetchBureauWeatherStationFromAPI
   schedule: every 1 mins
