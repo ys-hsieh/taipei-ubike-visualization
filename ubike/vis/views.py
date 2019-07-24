@@ -9,7 +9,7 @@ def index(request):
     return HttpResponse("Hello, world. You're at the ubike/vis index.")
 
 def counter(request):
-    return HttpResponse("The cron.yaml has already call this function for " + str(globalCounter) + " times")
+    return HttpResponse("The cron.yaml has already call this function for " + str(globalCounter) + " times since 7/24 16:30")
 
 def count(request):
     global globalCounter

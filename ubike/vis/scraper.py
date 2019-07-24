@@ -797,6 +797,14 @@ def fetchBureauWeatherStationFromAPI(request):
         return HttpResponse("Fail to update BureauWeatherStation at : " + str(datetime.now()))
 
 
+def showData(request):
+    returnString = ""
+    oldStationEntry = FetchUbikeDataRecord.objects.all()
+    for i in oldStationEntry:
+        returnString = returnString + "  ////  " + str(i.mday)
+    return HttpResponse(returnString)
+
+
 def main():
     return
 
