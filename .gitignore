@@ -113,5 +113,6 @@ venv.bak/
 
 # GCE
 app.yaml
+cloud_sql_proxy
 
 .DS_Store
