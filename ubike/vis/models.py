@@ -181,7 +181,7 @@ class AutoWeatherData(models.Model):
     locationName = models.TextField()
     stationId = models.TextField()
     obsTime = models.DateTimeField()
-    ELE = models.FloatField()
+    ELEV = models.FloatField()
     WDIR = models.FloatField()
     WDSD = models.FloatField()
     TEMP = models.FloatField()
