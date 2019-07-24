@@ -14,3 +14,6 @@ urlpatterns = [
     path('fetchAutoWeatherStationFromAPI', scraper.fetchAutoWeatherStationFromAPI, name='fetchAutoWeatherStationFromAPI'),
     path('fetchAutoRainDataFromAPI', scraper.fetchAutoRainDataFromAPI, name='fetchAutoRainDataFromAPI'),
     path('fetchAutoRainStationFromAPI', scraper.fetchAutoRainStationFromAPI, name='fetchAutoRainStationFromAPI'),
+    path('fetchBureauWeatherDataFromAPI', scraper.fetchBureauWeatherDataFromAPI, name='fetchBureauWeatherDataFromAPI'),
+    path('fetchBureauWeatherStationFromAPI', scraper.fetchBureauWeatherStationFromAPI, name='fetchBureauWeatherStationFromAPI'),
+]
